@@ -226,7 +226,19 @@ window.addEventListener('scroll', animateOnScroll);
 
 // Initialize gallery items with animation properties
 document.querySelectorAll('.gallery-item').forEach((item, index) => {
+    // Add staggered animation delays
     item.style.transitionDelay = `${index * 0.1}s`;
+    
+    // Add additional animation effects
+    item.addEventListener('mouseenter', function() {
+        this.style.transform = 'scale(1.03)';
+        this.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.2)';
+    });
+    
+    item.addEventListener('mouseleave', function() {
+        this.style.transform = 'scale(1)';
+        this.style.boxShadow = 'var(--shadow)';
+    });
 });
 
 // Scroll to top button
